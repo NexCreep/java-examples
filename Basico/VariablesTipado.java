@@ -30,7 +30,7 @@
  *      ¡¡¡CUALQUIER NUMERO LO TRATA COMO int!!!
  *  
 */
-public class VariablesTipado extends Operandos
+public class VariablesTipado
 {
     //COMENTARIO
     
