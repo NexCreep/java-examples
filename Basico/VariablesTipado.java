@@ -42,7 +42,7 @@ public class VariablesTipado
         byte diaSemana = 0;
         
         //Casteo
-        diaSemana = (int)7;
+        diaSemana = (byte)7;
         
         return;
         
