@@ -29,7 +29,7 @@
  *      - objectStr.charAt(int) => Char [Te devuelve el caracter de la posicion int]
  *      ((Apunte para comparar cadena el == no es fiable sobre todo si las cadena se modifican))
  *      - objectStr.equals(objectStr1) => Boolean [Compara dos cadenas]
- *      - objectStr.equalsIgnore(objectStr1) => Boolean [Compara dos cadenas sin ser "case sensitive"]
+ *      - objectStr.equalsIgnoreCase(objectStr1) => Boolean [Compara dos cadenas sin ser "case sensitive"]
  *      - objectStr.length() => Integer [Te devuelve el numero de caracteres de la cadena]
  *      - objectStr.indexOf(char) => Integer [Te devuelve la primera posicion del caracter. Numero negativo si no lo localiza]
  *      - objectStr.indexOf(char, pos) => Integer [Te devuelve la primera posicion del caracter a partir de la posición dada]
@@ -37,6 +37,15 @@
  *      - objectStr.indexOf(objectStr1, pos) => Integer [Te devuelve la primera posicion de la cadena a partir de la posicion dada.]
  *      - objectStr.lastIndexOf(x) => Integer [Igual que indexOf pero localiza a partir del final]
  *      - objectStr.concat(objectStr1) => String [Concatena dos cadenas]
+ *      - objectStr.substring(posI, posF) => String [A parti de dos posiciones (inicial y final), coge una subcadena de la cadena. La pos. final no se incluye]
+ *      - objectStr.substring(posI) => String [A partir de una posicion inicial, coge una subcadena de la cadena]
+ *      - objectStr.compareTo(objectStr2) => Integer [Compara dos cadena. 0 = iguales, >0 = mayor que, <0 = menor que]
+ *      - objectStr.compareToIgnoreCase(objectStr2) => Integer [Compara dos cadena. 0 = iguales, >0 = mayor que, <0 = menor que, sin ser "case sensitive"]
+ *      - objectStr.trim() => String [Te devuelve la misma cadena sin entre espacios]
+ *      - objectStr.isEmpty() => Boolean [Te devuelve true si la cadena esta vacia]
+ *      - objectStr.replace(charA, charB) => String [Remplaza los charA por charB]
+ *      - objectStr.startsWith(objectStr1) => Bool [Devuelve true/false dependiendo de si empieza por objectStr1]
+ *      
  *  
 */
 
@@ -49,6 +58,13 @@ public class ClasesEnvolventes
         cadena = "1";
         x = Integer.parseInt(cadena);
         System.out.println(x);
+        
+        String stringA = "HOLA";
+        String stringB = "hola";
+        
+        System.out.println(stringA + " = " + stringB + " ? " + stringA.equals(stringB));
+        System.out.println(stringA + " = " + stringB + " ? " + stringA.equalsIgnoreCase(stringB));
+        
         
     }
 }
