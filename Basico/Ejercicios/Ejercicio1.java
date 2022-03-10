@@ -20,7 +20,6 @@ public class Ejercicio1
         
         System.out.println("Parte entera: " + numStr.substring(0, dotIndex));
         System.out.println("Parte real: " + numStr.substring(dotIndex+1));
-        
     }
     
 }
