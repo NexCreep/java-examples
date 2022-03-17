@@ -5,7 +5,6 @@
 *.log
 
 # BlueJ files
-package.bluej
 *.ctxt
 *.html
 *.htm
