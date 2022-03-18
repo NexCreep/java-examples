@@ -19,9 +19,9 @@ public class Ejercicio1
         Scanner sc = new Scanner(System.in, "UTF-8");
         
         System.out.print("Nº elementos array: ");
-        final int size = Integer.parseInt(sc.nextLine());
-        
-        int[] uArray = new int[size];
+        final int SIZE = Integer.parseInt(sc.nextLine());
+    
+        int[] uArray = new int[SIZE];
         int uNum = 0;
         int i = 0;
         while(i<uArray.length){
@@ -31,7 +31,8 @@ public class Ejercicio1
                 uArray[i] = uNum;
                 i++;
             }
-        }        
+        }
+        System.out.println("Fin de proceso");
     }
     
 }
