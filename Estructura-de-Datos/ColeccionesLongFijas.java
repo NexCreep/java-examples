@@ -17,6 +17,10 @@
  *      A valor = nombre[indice] => x
  *      A tamaño = nombre.length => int
  *      
+ *   Clase array
+ *      Al ser objetos, si por ejemplo tenemos el objeto array A igualado con B, si modificamos uno, surtira efecto en ambos.
+ *          System.arraycopy(arrayO, posO, arrayF, posF, n_elementos);
+ *      
  *      
  *  ~Matrices 
  *   -Regulares
