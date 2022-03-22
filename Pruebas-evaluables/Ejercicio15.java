@@ -7,6 +7,22 @@ public class Ejercicio15
                 System.out.printf("El carácter es la vocal minúscula \"%c\"", c);
             else
                 System.out.printf("El carácter es la vocal mayúscula \"%c\"", c);
+        
+            String stringChar = String.valueOf(c);
+            stringChar = stringChar.toUpperCase();
+            c = stringChar.charAt(0);
+            String rango = "";
+            
+            if (c>='A' && c<='J')
+                rango = "A-J";
+            else if (c>='K' && c<='R')
+                rango = "K-R";
+            else if (c>='S' && c<='Z')
+                rango = "S-Z";
+                
+            System.out.printf("\nEl carácter se encuentra en el rango %s.", rango);
+                
+            
         }else{
             if(c >= '0'){
                 String numName = "";
@@ -42,9 +58,9 @@ public class Ejercicio15
                         numName = "nueve";
                 }
                 System.out.printf("El carácter es el número %s", numName);
-            }else{
+            }else
                 System.out.println("Carácter no contemplado");
-            }
+            
             
         }
         
