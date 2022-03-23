@@ -2,17 +2,14 @@ public class Ejercicio15
 {
     public static void main(char c){
         
-        if (c > '9'){
-            if (c > 'Z')
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')){
+            if (c > 'Z'){
                 System.out.printf("El carácter es la vocal minúscula \"%c\"", c);
-            else
+                c -= 32;
+            }else
                 System.out.printf("El carácter es la vocal mayúscula \"%c\"", c);
         
-            String stringChar = String.valueOf(c);
-            stringChar = stringChar.toUpperCase();
-            c = stringChar.charAt(0);
             String rango = "";
-            
             if (c>='A' && c<='J')
                 rango = "A-J";
             else if (c>='K' && c<='R')
@@ -24,7 +21,7 @@ public class Ejercicio15
                 
             
         }else{
-            if(c >= '0'){
+            if(c >= '0' && c <= '9'){
                 String numName = "";
                 switch (c){
                     case '0':
