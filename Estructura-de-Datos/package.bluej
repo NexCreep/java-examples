@@ -1,8 +1,8 @@
 #BlueJ package file
-editor.fx.0.height=0
-editor.fx.0.width=0
-editor.fx.0.x=0
-editor.fx.0.y=0
+editor.fx.0.height=1026
+editor.fx.0.width=1696
+editor.fx.0.x=-8
+editor.fx.0.y=-8
 objectbench.height=99
 objectbench.width=1076
 package.divider.horizontal=0.6
@@ -27,8 +27,8 @@ target1.height=82
 target1.name=Ejercicios
 target1.type=PackageTarget
 target1.width=120
-target1.x=298
-target1.y=200
+target1.x=90
+target1.y=380
 target2.height=70
 target2.name=ColeccionesLongFijas.java
 target2.type=TextTarget
