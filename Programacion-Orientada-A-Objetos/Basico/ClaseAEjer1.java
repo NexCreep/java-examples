@@ -24,6 +24,8 @@ public class ClaseAEjer1
     public void setEdad(short edad){ this.edad = edad; }
     public void setLetraPiso(char letraPiso){ this.letraPiso = letraPiso; }
     
-    
+    public String toString(){
+        return nif + " - " + nombre + " - " + edad + " - " + letraPiso;
+    }
     
 }
