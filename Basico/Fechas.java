@@ -28,6 +28,10 @@
  *          gc.get(Calendar.MINUTE) => int (Devuelve los minutos [0-59])
  *          gc.get(Calendar.SECOND) => int (Devuelve los second [0-59])
  *          
+ *          gc.set(CALENDAR_CONST, newValue) => void (Actualiza un dato dentro de el objeto gc)
+ *          gc.setTime(Date obj) => void (Cambia de formato Date a GC)
+ *          
+ *          gc.getTimeInMillis() => int (Obtiene el tiempo en milisegundos)
 */
 import java.util.GregorianCalendar;
 import java.util.Calendar;
@@ -57,6 +61,8 @@ public class Fechas
         GregorianCalendar gc2 = new GregorianCalendar(2001, 12-1, 13, 06, 00, 00);
         System.out.println(gc2.get(Calendar.AM_PM));
         
+        gc2.set(Calendar.YEAR, 2023);
+        System.out.printf("%tc \n", gc2);
         
     }
     

@@ -9,13 +9,16 @@ import java.util.Calendar;
 
 public class Ejercicio3
 {
-    public static void main(short mes, short dia){
+    public static void main(byte mes, byte dia){
             
         if ((mes <= 12 && mes >= 1) && (dia <= 31 && mes >= 1)){
+            final short YEAR = (short)new GregorianCalendar().get(Calendar.YEAR);
+            final short DAYS_OF_YEAR = (short)(YEAR % 4 == 0 ? 366 : 365);
+            
             GregorianCalendar gc = new GregorianCalendar(2022, mes-1, dia);
         
             System.out.printf("Han pasado %d desde comienzo de año \n", gc.get(Calendar.DAY_OF_YEAR));
-            System.out.printf("Faltan %d días hasta final de año \n",365 - gc.get(Calendar.DAY_OF_YEAR));
+            System.out.printf("Faltan %d días hasta final de año \n",DAYS_OF_YEAR - gc.get(Calendar.DAY_OF_YEAR));
         }else{
             System.out.println("La fecha dada es incorrecta.");
             
