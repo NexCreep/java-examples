@@ -19,43 +19,50 @@ public class ClaseStringTokenizer
         
         System.out.println("Introduce una frase: ");
         String phrase = scan.nextLine();
-        StringTokenizer tokens = new StringTokenizer(phrase);
+        StringTokenizer tokens = new StringTokenizer(phrase, " ?,()[]{}.");
         
         short conjCount = 0;
         String token = "";
         while (tokens.hasMoreTokens()){
             token = tokens.nextToken();
-            for (String conj : conjsCops){
-                if (conj.equalsIgnoreCase(token)) conjCount++;
-            }
+            int j = 0;
+            do{
+                if (conjsCops[j].equalsIgnoreCase(token)) 
+                    conjCount++;
+                j++;
+            }while(!conjsCops[j].equalsIgnoreCase(token) && j < conjsCops.length);
             
         }
         
         System.out.println("La frase tiene " + conjCount + " conjunciones copulativas.");
         
-        tokens = new StringTokenizer(phrase);
+        tokens = new StringTokenizer(phrase, "?,()[]{}.");
         
         conjCount = 0;
         token = "";
         final int TOKEN_COUNT = tokens.countTokens();
         for (int i=0; i<TOKEN_COUNT; i++){
             token = tokens.nextToken();
-            for (String conj : conjsCops){
-                if (conj.equalsIgnoreCase(token)) conjCount++;
-            }
+            int j = 0;
+            do{
+                if (conjsCops[j].equalsIgnoreCase(token)) conjCount++;
+                j++;
+            }while(!conjsCops[j].equalsIgnoreCase(token) && j < conjsCops.length);
         }
         
         System.out.println("La frase tiene " + conjCount + " conjunciones copulativas.");
         
-        tokens = new StringTokenizer(phrase);
+        tokens = new StringTokenizer(phrase, "?,()[]{}.");
         
         conjCount = 0;
         token = "";
         while (tokens.countTokens() > 0){
             token = tokens.nextToken();
-            for (String conj : conjsCops){
-                if (conj.equalsIgnoreCase(token)) conjCount++;
-            }
+            int j = 0;
+            do{
+                if (conjsCops[j].equalsIgnoreCase(token)) conjCount++;
+                j++;
+            }while(!conjsCops[j].equalsIgnoreCase(token) && j < conjsCops.length);
         }
         
         System.out.println("La frase tiene " + conjCount + " conjunciones copulativas.");

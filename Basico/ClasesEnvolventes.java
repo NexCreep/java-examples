@@ -46,7 +46,15 @@
  *      - objectStr.replace(charA, charB) => String [Remplaza los charA por charB]
  *      - objectStr.startsWith(objectStr1) => Bool [Devuelve true/false dependiendo de si empieza por objectStr1]
  *      
- *  
+ *  Clase Character [Muchos de los metodos devuelven datos booleanos]
+ *      Character.isDigit(char) => Boolean [Indica si es un digito]
+ *      Character.isLowerCase(char) => Boolean [Indica si es mayuscula]
+ *      Character.isUpperCase(char) => Boolean [Indica si es minuscula]
+ *      Character.isLetter(char) => Boolean [Indica si es una letra]
+ *      Character.isLetterOrDigit(char) => [Indica si es letra o digito]
+ *      Character.isAlphabetic(char) => Boolean [Indica si es una letra]
+ *      Character.isSpaceChar(char) => Boolean [Indica si es un espacio]
+ *      Character.isWhiteSpace(char) => Booolean [Indica es un espacio]
 */
 
 public class ClasesEnvolventes
