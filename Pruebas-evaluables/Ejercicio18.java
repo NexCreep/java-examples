@@ -18,13 +18,21 @@ public class Ejercicio18
        if (interes != 0){
            intereses[iIntereses] = interes;
            iIntereses++;
-       
+           
+            byte[] sortIntereses = new byte[100];
+            System.arraycopy(intereses, 0, sortIntereses, 0, sortIntereses.length);
+            Arrays.sort(sortIntereses);
+            
             while(iIntereses < intereses.length && interes != 0){
                System.out.print("Introduce interes (0 para continuar): ");
                interes = Byte.parseByte(scan.nextLine());
-               if (interes != intereses[iIntereses-1] && interes != 0){
+               
+               System.out.printf("[%d]\n", Arrays.binarySearch(sortIntereses, interes));
+               if (Arrays.binarySearch(sortIntereses, interes) < 0 && interes != 0){
                    intereses[iIntereses] = interes;
                    iIntereses++;
+                   System.arraycopy(intereses, 0, sortIntereses, 0, sortIntereses.length);
+                   Arrays.sort(sortIntereses);
                }
             }
             System.out.println();
