@@ -55,6 +55,8 @@
  *      Character.isAlphabetic(char) => Boolean [Indica si es una letra]
  *      Character.isSpaceChar(char) => Boolean [Indica si es un espacio]
  *      Character.isWhiteSpace(char) => Booolean [Indica es un espacio]
+ *      Character.toUpperCase(char) => Char [Te devuelve el caracter en mayúscula]
+ *      Character.toLowerCase(char) => Char [Te devuelve el caracter en minúscula]
 */
 
 public class ClasesEnvolventes
