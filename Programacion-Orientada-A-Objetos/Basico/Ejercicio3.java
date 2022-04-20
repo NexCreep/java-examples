@@ -54,15 +54,9 @@ public class Ejercicio3
     
     public static boolean esPalindromo(String cadena){
         String revCadena = "";
-        String spaces = "hola como estas";
-        spaces.replace(' ', "".charAt(0));
         
         for (int i = cadena.length()-1; i >= 0; i--)
             revCadena += String.valueOf(cadena.charAt(i));
-        
-        cadena.replace(' ', "".charAt(0));
-        revCadena.replace(' ', "".charAt(0));
-        
         
         return cadena.equalsIgnoreCase(revCadena);
         
