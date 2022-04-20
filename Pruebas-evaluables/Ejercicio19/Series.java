@@ -48,7 +48,7 @@ class Series
         int i = 0;
         boolean located = false;
         do{
-            if (genero == generos[i]){
+            if (Character.toUpperCase(genero) == generos[i]){
                 this.genero = genero;
                 located = true;
             }
@@ -59,9 +59,9 @@ class Series
         
     //! Class to String
     public String toString(){
-        return "Series{titulo=" + titulo +", capitulos=" + capitulos + 
-            ", genero=" + genero + ", guionista=" + guionista +
-            ", actores=" + Arrays.toString(actores) + ", precio=" + precio + "}";
+        return titulo + " tiene, " + capitulos + " capitulos, su genero es '" + genero + 
+        "', su guión ha sido escrito por " + guionista + ", y actuada por " +
+        Arrays.toString(actores) + ", y se puede ver por " + precio + " €.";
     }
     
 }
