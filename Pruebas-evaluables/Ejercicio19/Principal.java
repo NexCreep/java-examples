@@ -8,9 +8,9 @@ public class Principal
     public static void main(){
         Series serieA = porDefecto(), serieB = porTituloGuionista(), serieC = porCompleto();
         
-        System.out.println("\nLa serie " + serieA.toString());
-        System.out.println("La serie " + serieB.toString());
-        System.out.println("La serie " + serieC.toString() + "\n");
+        System.out.println("\nLa serie " + serieA);
+        System.out.println("La serie " + serieB);
+        System.out.println("La serie " + serieC + "\n");
         
         System.out.println("Fin de proceso.");
     }
@@ -46,8 +46,6 @@ public class Principal
         
         System.out.print("Introduce el precio de taquilla: ");
         serie.setPrecio(Float.parseFloat(scan.nextLine()));
-        
-        System.out.println(serie.toString());
         
         return serie;
         

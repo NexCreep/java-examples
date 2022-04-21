@@ -23,7 +23,7 @@ public class Ejercicio3
                     
                 case 2: //primo
                     Numero num = new Numero();
-                
+                    
                     System.out.print("Introduce un numero: ");
                     
                     if(num.esPrimo(Integer.parseInt(scan.nextLine())))

@@ -27,7 +27,6 @@ public class Ejercicio18
                System.out.print("Introduce interes (0 para continuar): ");
                interes = Byte.parseByte(scan.nextLine());
                
-               System.out.printf("[%d]\n", Arrays.binarySearch(sortIntereses, interes));
                if (Arrays.binarySearch(sortIntereses, interes) < 0 && interes != 0){
                    intereses[iIntereses] = interes;
                    iIntereses++;
@@ -43,8 +42,9 @@ public class Ejercicio18
            final int CREC_COLS = plazo + 1;
            double[][] crecimiento = new double[CREC_COLS][interesesLen];
            
-           for(int i=0; i<crecimiento[0].length; i++)
-               crecimiento[0][i] = capital;
+           /*** A PARTIR DE AQUI CALCULO E IMPRESIÓN ***/
+           Arrays.fill(crecimiento[0], capital);
+           
            
            for(int i=1; i<crecimiento.length; i++){
                for(int j=0; j<crecimiento[i].length; j++){
@@ -53,26 +53,17 @@ public class Ejercicio18
                 }
            }
            
-           
-           for (int i = 0; i < interesesLen; i++){
-               String interesStr = String.valueOf(interes), capitalStr = String.valueOf(capital);
-               byte capitalLen = (byte)capitalStr.length(), interesLen = (byte)interesStr.length();
-               byte spacesCant = capitalLen > interesLen ? (byte)(capitalLen - interesLen) : 0;
-               
-               String spaces = "";
-               for (int j = 1; j <= spacesCant; j++)
-                   spaces = spaces + " ";
-               
-               System.out.printf("%s%d%%   ", spaces, intereses[i]);
-            }
+           for (int i = 0; i < interesesLen; i++)
+               System.out.printf("%13s%c", intereses[i], '%');
+            
                
             System.out.println();
            
            for(int i=0; i<crecimiento.length; i++){
                for(int j=0; j<crecimiento[i].length; j++)
-                   System.out.printf("%,.2f   ", crecimiento[i][j]);
+                   System.out.printf("%,14.2f", crecimiento[i][j]);
                    
-                if (i+1 == CREC_COLS) System.out.printf("--Monto final");
+                if (i+1 == CREC_COLS) System.out.printf(" --Monto final");
                 System.out.println();
             }
         }

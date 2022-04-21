@@ -15,4 +15,7 @@ public class Clase
     public String toString(){
         return num + " " + nombre;
     }
+    public Clase clone()  {
+        return new Clase(nombre);
+    }
 }
