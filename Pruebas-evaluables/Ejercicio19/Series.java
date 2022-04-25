@@ -49,7 +49,7 @@ class Series
         boolean located = false;
         do{
             if (Character.toUpperCase(genero) == generos[i]){
-                this.genero = genero;
+                this.genero = Character.toUpperCase(genero);
                 located = true;
             }
             i++;
