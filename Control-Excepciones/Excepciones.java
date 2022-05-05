@@ -1,17 +1,29 @@
+import java.util.Scanner;
+
 public class Excepciones
 {
     public static void main(){
-        int[] nums = new int[4];
+        
+        askNum();
+        
+        System.out.println("Fin de proceso");
+    }
+    
+    public static void askNum() {
+        final Scanner scan = new Scanner(System.in);
         
         try{
-             System.out.println("Ante de la excepcion");
-             nums[4]=10;
+            System.out.print("Numero: ");
+            int a = Integer.parseInt(scan.nextLine());
+            System.out.println("El numero es: " + a);
         }
-        catch(ArrayIndexOutOfBoundsException exc){
-            System.out.println("Indice fuera de los limites");
-            
-        }finally{
-            System.out.println("Despues de que se genere la excepcion");
+        catch (NumberFormatException e){
+            System.out.println("El numero introducido no tiene el formato adecuado o no es un numero");
+            askNum();
+        }
+        catch (Exception e){
+            System.out.println(e);
+            askNum();
         }
     }
 }
