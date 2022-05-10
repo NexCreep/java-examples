@@ -2,6 +2,7 @@ package Ejercicio20;
 
 import java.util.GregorianCalendar;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Persona
 {
@@ -16,15 +17,19 @@ public class Persona
     private String[] aficiones = new String[1];
     
     
-    Persona(){}
+    Persona(){
+        id = generarIndetificador();
+    }
     
     Persona(String nombre, GregorianCalendar fechaNac, char sexo){
+        id = generarIndetificador();
         this.nombre = nombre;
         this.fechaNac = new GregorianCalendar(fechaNac.YEAR, fechaNac.MONTH, fechaNac.DAY_OF_MONTH);
         comprobarSexo(sexo);
     }
     
     Persona(String nombre, GregorianCalendar fechaNac, char sexo, float peso, float altura, String[] aficiones){
+        id = generarIndetificador();
         this.nombre = nombre;
         this.fechaNac = new GregorianCalendar(fechaNac.YEAR, fechaNac.MONTH, fechaNac.DAY_OF_MONTH);
         
@@ -38,7 +43,16 @@ public class Persona
         
     }
     
-    protected void comprobarSexo(char sexo){
+    private String generarIndetificador(){
+        Random random = new Random();
+        int id = 0;
+        while (id > 999999){
+            id = random.nextInt(99999);
+        }
+        return String.valueOf(id);
+    }
+    
+    private void comprobarSexo(char sexo){
         Arrays.sort(sexos);
         if ( Arrays.binarySearch(sexos, sexo) >= 0 )
             this.sexo = sexo;
@@ -69,10 +83,11 @@ public class Persona
         GregorianCalendar now = new GregorianCalendar();
         
         long ageMillis = now.getTimeInMillis() - fechaNac.getTimeInMillis();
+        int age = (int)ageMillis / 1000 / 86400 / 30 / 12;
         
-        int age = ageMillis / 1000 / 86400 / 30 / 12;
         
-        
+        return age >= 18;
     }
+
     
 }
