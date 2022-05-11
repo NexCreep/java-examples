@@ -43,21 +43,39 @@ public class Persona
         
     }
     
+    protected String getId(){ return this.id; }
+    protected String getNombre(){ return this.nombre; };
+    protected GregorianCalendar getFechaNac(){ return this.fechaNac; };
+    protected char getSexo(){ return this.sexo; }
+    protected float getPeso(){ return this.peso; }
+    protected float getAltura(){ return this.altura; }
+    protected String[] getAficiones(){ return this.aficiones; }
+    
+    protected void setNombre(String nombre){ this.nombre = nombre; }
+    protected void setFechaNac(GregorianCalendar fechaNac){ this.fechaNac = new GregorianCalendar(fechaNac.YEAR, fechaNac.MONTH, fechaNac.DAY_OF_MONTH); }
+    protected void setSexo(char sexo){ comprobarSexo(sexo); }
+    protected void setPeso(float peso) { this.peso = peso; }
+    protected void setAltura(float altura){ this.altura = altura; }
+    protected void setAficiones(String[] aficiones){ 
+        this.aficiones = new String[aficiones.length];
+        System.arraycopy(aficiones, 0, this.aficiones, 0, this.aficiones.length);
+    }
+    
     private String generarIndetificador(){
         Random random = new Random();
         int id = 0;
-        while (id > 999999){
-            id = random.nextInt(99999);
-        }
+        do{
+            id = random.nextInt(999999);
+        }while (id < 99999);
         return String.valueOf(id);
     }
     
     private void comprobarSexo(char sexo){
         Arrays.sort(sexos);
-        if ( Arrays.binarySearch(sexos, sexo) >= 0 )
+        if ( Arrays.binarySearch(sexos, Character.toUpperCase(sexo)) >= 0 )
             this.sexo = sexo;
         else
-            System.out.printf("El sexo %c no se contempla, insertando 'M' por defecto");
+            System.out.printf("El sexo %c no se contempla, insertando 'M' por defecto", sexo);
         
     }
     
@@ -89,5 +107,8 @@ public class Persona
         return age >= 18;
     }
 
+    public String toString(){
+        return "Persona(id=" + id + "){nombre=" + nombre + ";fechaNac=" + fechaNac.YEAR + "/" + fechaNac.MONTH+1 + "/" + fechaNac.DAY_OF_MONTH + "}";
+    }
     
 }
