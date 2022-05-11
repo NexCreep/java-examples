@@ -24,11 +24,8 @@ public class GestionPersona
         
         String[] aficiones = askAficiones();
         
-        //(String nombre, GregorianCalendar fechaNac, char sexo, float peso, float altura, String[] aficiones)
-        //(nombre, fechaNac, sexo, peso, altura, aficiones)
-        
-        porDefecto(nombre, fechaNac, sexo, peso, altura, aficiones);
-        newPesonaA(nombre, fechaNac, sexo, peso, altura, aficiones);
+        porDefecto();
+        newPesonaA(nombre, fechaNac, sexo);
         newPesonaB(nombre, fechaNac, sexo, peso, altura, aficiones);
     }
     
@@ -47,17 +44,17 @@ public class GestionPersona
         byte mes = 0, dia = 0;
         
         do{
-            System.out.print("Introduce el año: ");
+            System.out.print("Introduce el año de nacimiento: ");
             año = Short.parseShort(scan.nextLine());
         }while (año < 1970);
         
         do{
-            System.out.print("Introduce el mes: ");
+            System.out.print("Introduce el mes de nacimiento: ");
             mes = Byte.parseByte(scan.nextLine());
         }while (mes < 1 || mes > 12);
         
         do{
-            System.out.print("Introduce el día: ");
+            System.out.print("Introduce el día de nacimiento: ");
             dia = Byte.parseByte(scan.nextLine());
         }while (dia < 1 || dia > 31);
         
@@ -71,14 +68,14 @@ public class GestionPersona
         
         String[] aficiones = new String[1];
         
-        System.out.print("Introduce un nombre ('X' para salir): ");
+        System.out.print("Introduce una afición ('X' para salir): ");
         String aficion = scan.nextLine();
         if(!aficion.equalsIgnoreCase(BREAK_POINT)){
             aficiones[0] = aficion;
             
             int i = 1;
             do{
-                System.out.print("Introduce un nombre ('X' para salir): ");
+                System.out.print("Introduce una afición ('X' para salir): ");
                 aficion = scan.nextLine();
                 if(!aficion.equalsIgnoreCase(BREAK_POINT)){
                     aficiones = increaseArray(aficiones);
@@ -93,28 +90,54 @@ public class GestionPersona
     }
     
     
-    private static void porDefecto(String nombre, GregorianCalendar fechaNac, char sexo, float peso, float altura, String[] aficiones){
+    private static void porDefecto(){
         Persona persona = new Persona();
+        
+        persona.setNombre("Persona A");
+        persona.setFechaNac(new GregorianCalendar(2000, 1, 1));
+        persona.setSexo('m');
+        persona.setPeso(72.5f);
+        persona.setAltura(1.75f);
+        persona.setAficiones(new String[]{"leer", "tocar la guitarra", "programar"});
+        
+        System.out.printf("\n%s (%s)\n----------------------\n", persona.getNombre(), persona.getId());
+        
         Estatico.mensajePeso(persona);
         
         NoEstatico noSta = new NoEstatico();
         noSta.mensajeEdad(persona);
+        
+        System.out.println("Persona por defecto: " + persona);
     }
     
-    private static void newPesonaA(String nombre, GregorianCalendar fechaNac, char sexo, float peso, float altura, String[] aficiones){
+    private static void newPesonaA(String nombre, GregorianCalendar fechaNac, char sexo){
         Persona persona = new Persona(nombre, fechaNac, sexo);
+        
+        persona.setPeso(79.78f);
+        persona.setAltura(1.85f);
+        persona.setAficiones(new String[]{"running", "videojuegos", "escribir poesia clasica", "dibujar"});
+        
+        System.out.printf("\n%s (%s)\n----------------------\n", persona.getNombre(), persona.getId());
+        
         Estatico.mensajePeso(persona);
         
         NoEstatico noSta = new NoEstatico();
         noSta.mensajeEdad(persona);
+        
+        System.out.println("Persona con atributos principales: " + persona);
     }
     
     private static void newPesonaB(String nombre, GregorianCalendar fechaNac, char sexo, float peso, float altura, String[] aficiones){
         Persona persona = new Persona(nombre, fechaNac, sexo, peso, altura, aficiones);
+        
+        System.out.printf("\n%s (%s)\n----------------------\n", persona.getNombre(), persona.getId());
+        
         Estatico.mensajePeso(persona);
         
         NoEstatico noSta = new NoEstatico();
         noSta.mensajeEdad(persona);
+        
+        System.out.println("Persona con todos los atributos: " + persona);
     }
     
 }

@@ -1,6 +1,7 @@
 package Ejercicio20;
 
 import java.util.GregorianCalendar;
+import java.util.Calendar;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -24,14 +25,14 @@ public class Persona
     Persona(String nombre, GregorianCalendar fechaNac, char sexo){
         id = generarIndetificador();
         this.nombre = nombre;
-        this.fechaNac = new GregorianCalendar(fechaNac.YEAR, fechaNac.MONTH, fechaNac.DAY_OF_MONTH);
+        this.fechaNac = new GregorianCalendar(fechaNac.get(Calendar.YEAR), fechaNac.get(Calendar.MONTH), fechaNac.get(Calendar.DAY_OF_MONTH));
         comprobarSexo(sexo);
     }
     
     Persona(String nombre, GregorianCalendar fechaNac, char sexo, float peso, float altura, String[] aficiones){
         id = generarIndetificador();
         this.nombre = nombre;
-        this.fechaNac = new GregorianCalendar(fechaNac.YEAR, fechaNac.MONTH, fechaNac.DAY_OF_MONTH);
+        this.fechaNac = new GregorianCalendar(fechaNac.get(Calendar.YEAR), fechaNac.get(Calendar.MONTH), fechaNac.get(Calendar.DAY_OF_MONTH));
         
         comprobarSexo(sexo);
         
@@ -45,14 +46,16 @@ public class Persona
     
     protected String getId(){ return this.id; }
     protected String getNombre(){ return this.nombre; };
-    protected GregorianCalendar getFechaNac(){ return this.fechaNac; };
+    protected GregorianCalendar getFechaNac(){ return new GregorianCalendar(fechaNac.get(Calendar.YEAR), fechaNac.get(Calendar.MONTH), fechaNac.get(Calendar.DAY_OF_MONTH)); };
     protected char getSexo(){ return this.sexo; }
     protected float getPeso(){ return this.peso; }
     protected float getAltura(){ return this.altura; }
     protected String[] getAficiones(){ return this.aficiones; }
     
     protected void setNombre(String nombre){ this.nombre = nombre; }
-    protected void setFechaNac(GregorianCalendar fechaNac){ this.fechaNac = new GregorianCalendar(fechaNac.YEAR, fechaNac.MONTH, fechaNac.DAY_OF_MONTH); }
+    protected void setFechaNac(GregorianCalendar fechaNac){ 
+        this.fechaNac = new GregorianCalendar(fechaNac.get(Calendar.YEAR), fechaNac.get(Calendar.MONTH), fechaNac.get(Calendar.DAY_OF_MONTH)); 
+    }
     protected void setSexo(char sexo){ comprobarSexo(sexo); }
     protected void setPeso(float peso) { this.peso = peso; }
     protected void setAltura(float altura){ this.altura = altura; }
@@ -97,18 +100,32 @@ public class Persona
         return ideal;
     }
     
-    protected boolean esMayorDeEdad(){
+    protected int getEdad(){
         GregorianCalendar now = new GregorianCalendar();
         
         long ageMillis = now.getTimeInMillis() - fechaNac.getTimeInMillis();
         int age = (int)ageMillis / 1000 / 86400 / 30 / 12;
         
+        System.out.println(ageMillis);
+        
+        return age;
+    }
+    
+    protected boolean esMayorDeEdad(){
+        GregorianCalendar now = new GregorianCalendar();
+        
+        long ageMillis = now.getTimeInMillis() - fechaNac.getTimeInMillis();
+        int age = (int)(ageMillis / 1000 / 86400 / 30 / 12);
         
         return age >= 18;
     }
-
+    
+    @Override
     public String toString(){
-        return "Persona(id=" + id + "){nombre=" + nombre + ";fechaNac=" + fechaNac.YEAR + "/" + fechaNac.MONTH+1 + "/" + fechaNac.DAY_OF_MONTH + "}";
+        return "Persona(id=" + id + "){nombre=" + nombre 
+            + ";fechaNac=" + fechaNac.get(Calendar.DAY_OF_MONTH) + "/" + fechaNac.get(Calendar.MONTH) + "/" + fechaNac.get(Calendar.YEAR) 
+            + ";sexo='" + sexo + "';peso=" + peso + ";altura=" + altura 
+            + ";aficiones=" + Arrays.toString(aficiones) +"}";
     }
     
 }
