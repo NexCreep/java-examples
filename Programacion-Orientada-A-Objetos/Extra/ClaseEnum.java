@@ -11,5 +11,16 @@ public class ClaseEnum
         for(Enum dia : dias){
             System.out.println(dia);
         }
+        
+        Enum actual = Enum.WEDNESDAY;
+        Enum mañana = Enum.THURSDAY;
+        
+        System.out.println(actual.compareTo(mañana));
+        System.out.println(actual.compareTo(dias[actual.ordinal()]));
+        
+        System.out.println(actual.equals(mañana));
+        System.out.println(actual.equals(dias[actual.ordinal()]));
+        
+        
     }
 }
