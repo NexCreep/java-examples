@@ -10,7 +10,7 @@ public class Principal
         Frigorifico frigo = new Frigorifico(modelo, consumo, temperatura);
         
         System.out.println(frigo);
-        System.out.printf("Su temperatura en Fahrenheit es %.2f ºF", frigo.pasoFarenheit());
+        System.out.printf("Su temperatura en Fahrenhéit es %.2f ºF", frigo.pasoFarenheit());
         
     }
     
