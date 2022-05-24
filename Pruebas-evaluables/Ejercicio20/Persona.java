@@ -12,7 +12,7 @@ public class Persona
     private String id = "";
     private String nombre = "";
     private GregorianCalendar fechaNac;
-    private char sexo = sexos[1];
+    private char sexo = 'M';
     private float peso = 0f;
     private float altura = 0f;
     private String[] aficiones = new String[1];

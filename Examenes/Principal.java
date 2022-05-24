@@ -44,13 +44,10 @@ public class Principal
             try{
                 System.out.print(msg);
                 asked = scan.nextLine();
-                int i = 0;
-                do{
+                for(int i=0; i < asked.length(); i++){
                     if (Character.isDigit(asked.charAt(i)))
                         throw new Exception("[!] El nombre del modelo no puede contener dígitos");
-                    i++;
-                }while(i < asked.length());
-                
+                }
                 passed = true;
             }catch(Exception e){
                 System.out.println(e.getMessage());
